@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcentagem dos Procedimentos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    
+    <section style="background-color: rgb(235, 199, 235);" class="container">
+        <div id="campodata">
+            <input type="datetime-local" id="data">
+        </div>
+
+        <h1 style="background-color: rgb(227, 96, 231); color: white;" class="alert alert-success" role="alert">JA Studio</h1>
+        <h2>Valores e Porcentagens</h2>
+
+        <form>
+        <label for="exampleFormControlSelect1">Valor do Procedimento R$</label>
+        <input class="form-control" type="number" id="txt1" min="0" max="10000">
+
+        <label for="exampleFormControlSelect1">Porcentagem a ser retirada %</label>
+        <input class="form-control" type="number" id="txt2" min="0" max="100">
+
+
+        <button type="submit" class="btn btn-primary mb-2" id="cal" value="" onclick="calcular()" onmouseout="normalizar()">Calcular</button>
+
+        <input class="form-control" type="text" id="rep" value="Repasse" readonly>
+        <input class="form-control" type="text" id="meu" value="Meu dinheiro" readonly><br>
+
+    </form>
+        <p id="developer"><i>Desenvolvido por Reinan Alves</i></p>
+    </section>
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+    <script>
+        //window.alert('Para controle dos seus dados após preencher o formulário e obter os valores desejados,faça um print do documento,salve em uma pasta ou anote as informações')
+     function calcular(){
+     event.preventDefault ();
+
+     var tn1 = document.getElementById('txt1');
+     var tn2 = document.getElementById('txt2');
+     var valor = Number(tn1.value);
+     var porc = Number(tn2.value);
+     var repasse = (valor*porc)/100;
+     var rest = valor- repasse;
+     rep.value =`Repasse R$ ${repasse}`
+     meu.value =`Fique com R$ ${rest}`
+    
+     txt1.style.background='#e9e9e9'
+     txt2.style.background='#e9e9e9'
+     rep.style.background='#e9e9e9'
+     meu.style.background='#e9e9e9'
+     }
+     function normalizar(){
+     txt1.style.background='white'
+     txt2.style.background='white'
+     rep.style.background='white'
+     meu.style.background='white'
+     }
+    </script>
+</body>
+</html>
